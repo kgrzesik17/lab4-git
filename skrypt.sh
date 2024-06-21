@@ -8,15 +8,18 @@ while [[ $# -gt 0 ]]; do
             ;;
         --logs)
             date=$(date +'%Y-%m-%d')
-            for i in {1..100}
+            start=1
+            if [[ -n "$2" ]]; then
+                count=$2
+            else
+                count=2
+            fi
+            echo "Generowanie $count logow."
+            for ((i=start; i<=count; i++))
             do
                 touch log$i.txt
-                printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date\n" > log$i.txt
+                printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
             done
-            ;;
-        *)
-            echo "unknown option: $1"
-            exit 1
             ;;
     esac
     shift
