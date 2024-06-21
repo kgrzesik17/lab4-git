@@ -12,7 +12,7 @@ while [[ $# -gt 0 ]]; do
             if [[ -n "$2" ]]; then
                 count=$2
             else
-                count=2
+                count=100
             fi
             echo "Generowanie $count logow."
             for ((i=start; i<=count; i++))
