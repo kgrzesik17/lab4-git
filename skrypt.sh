@@ -21,6 +21,14 @@ while [[ $# -gt 0 ]]; do
                 printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
             done
             ;;
+        --help)
+            echo 'Narzedzia pracy w branzy IT - laboratorium 4'
+            echo 'Opcje:'
+            echo '-d --date: Wyswietla obecna date'
+            echo '-l --logs [liczba]: Generuje (liczba) logow. Gdy liczba nie jest podana, domyslna wartoscia jest 100.'
+            echo '-h --help: Wyswietla pomoc dotyczaca programu - otwiera to okno :)'
+            echo 'Autor: Kacper Grzesik'
+            ;;
     esac
     shift
 done
