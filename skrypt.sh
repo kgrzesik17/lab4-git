@@ -2,11 +2,11 @@
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --date)
+        -d|--date)
             date=$(date +'%Y-%m-%d')
             echo "Obecna data to: $date" 
             ;;
-        --logs)
+        -l|--logs)
             date=$(date +'%Y-%m-%d')
             start=1
             if [[ -n "$2" ]]; then
@@ -21,7 +21,7 @@ while [[ $# -gt 0 ]]; do
                 printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
             done
             ;;
-        --help)
+        -h|--help)
             echo 'Narzedzia pracy w branzy IT - laboratorium 4'
             echo 'Opcje:'
             echo '-d --date: Wyswietla obecna date'
