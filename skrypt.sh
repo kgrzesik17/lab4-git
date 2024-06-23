@@ -21,6 +21,22 @@ while [[ $# -gt 0 ]]; do
                 printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
             done
             ;;
+        -e|--errors)
+            date=$(date +'%Y-%m-%d')
+            start=1
+            if [[ -n "$2" ]]; then
+                count=$2
+            else
+                count=100
+            fi
+            echo "Generowanie $count kodow bledow."
+            for ((i=start; i<=count; i++))
+            do
+                mkdir error$i
+                touch error$i/error$i.txt
+                printf "Nazwa: error$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
+            done
+            ;;
         -i|--init)
             git clone https://github.com/kgrzesik17/lab4-git
             MYPATH=$(pwd)
@@ -34,6 +50,7 @@ while [[ $# -gt 0 ]]; do
             echo '-l --logs [liczba]: Generuje (liczba) logow. Gdy liczba nie jest podana, domyslna wartoscia jest 100.'
             echo '-i --init: Klonuje projekt do folderu oraz ustawia jego ściężkę w zmiennej środowiskowej PATH.'
             echo '-h --help: Wyswietla pomoc dotyczaca programu - otwiera to okno :)'
+            echo '-e --errors [liczba]: Generuje (liczba) bledow. Gdy liczba nie jest podana, domyslna wartoscia jest 100.'
             echo 'Autor: Kacper Grzesik'
             ;;
     esac
