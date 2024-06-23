@@ -21,6 +21,12 @@ while [[ $# -gt 0 ]]; do
                 printf "Nazwa: log$i.txt\nSkrypt: skrypt.sh\nData: $date" > log$i.txt
             done
             ;;
+        -i|--init)
+            git clone https://github.com/kgrzesik17/lab4-git
+            MYPATH=$(pwd)
+            export MYPATH
+            export PATH=$PATH:MYPATH
+            ;;
         --help)
             echo 'Narzedzia pracy w branzy IT - laboratorium 4'
             echo 'Opcje:'
